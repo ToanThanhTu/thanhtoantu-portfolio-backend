@@ -1,0 +1,7 @@
+POST http://localhost:3001/api/texts
+Content-Type: application/json
+
+{
+    "name": "John",
+    "content": "This is John's text"
+}
