@@ -6,7 +6,7 @@
     "build": "tsc",
     "start": "node dist/index.js",
     "dev": "nodemon --exec ts-node src/index.ts",
-    "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../frontend && npm run build && @powershell Copy-Item dist -Recurse ../backend",
+    "build:ui": "@powershell Remove-Item -Recurse -Force dist && cd ../frontend && npm run build && @powershell Copy-Item dist -Recurse ../backend && cd ../backend && @powershell New-Item -ItemType Directory -Path ./dist/thanhtoantu-portfolio-frontend && @powershell Move-Item -Path ./dist/assets -Destination ./dist/thanhtoantu-portfolio-frontend/",
     "deploy": "fly deploy",
     "deploy:build": "npm run build && npm run deploy",
     "deploy:full": "npm run build:ui && npm run deploy:build",
