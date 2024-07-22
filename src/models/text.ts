@@ -12,11 +12,13 @@ mongoose.connect(url)
     .then(result => console.log('MongoDB connected'))
     .catch(error => console.error('MongoDB connection error:', error));
 
+// Interface for text document
 interface IPText extends Document {
     name: string;
     content: string;
 }
 
+// Text schema to ensure correct format
 const textSchema: Schema = new Schema({
     name: {
         type: String,

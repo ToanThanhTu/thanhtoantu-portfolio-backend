@@ -1,18 +1,25 @@
 import axios from 'axios';
 import { Request, Response } from 'express';
 
+// getting the api key from the .env file (devlopment) or Secrets (production)
 const apiKey = process.env.WEATHER_KEY;
 
 const baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric`;
 
 export const getWeather = async (request: Request, response: Response, next: any) => {
-    const { lat, lon } = request.body as { lat: String, lon: String };
-    // const url = `${baseUrl}&lat=${lat}&lon=${lon}`;
-    const url = `${baseUrl}&lat=-33.8698439&lon=151.2082848`;
+    // for dynamic location
+    // const { lat, lon } = request.body as { lat: String, lon: String };
+
+    // Sydney lat and lon
+    const lat = "-33.8698439";
+    const lon = "151.2082848";
+    const url = `${baseUrl}&lat=${lat}&lon=${lon}`;
 
     try {
         const axiosResponse = await axios.get(url);
         const weatherData = axiosResponse.data;
+
+        // extract some necessary weather data for display
         const responseWeatherData = {
             name: weatherData.name,
             temp: `${weatherData.main.temp}°C`,
