@@ -1,17 +1,5 @@
 import mongoose, { Document, Schema } from 'mongoose';
 
-mongoose.set('strictQuery', false);
-
-const url = process.env.MONGODB_URI || 'undefined url';
-
-console.log('URI in env is', process.env.MONGODB_URI);
-
-console.log('connecting to', url);
-
-mongoose.connect(url)
-    .then(result => console.log('MongoDB connected'))
-    .catch(error => console.error('MongoDB connection error:', error));
-
 // Interface for text document
 interface IPText extends Document {
     name: string;

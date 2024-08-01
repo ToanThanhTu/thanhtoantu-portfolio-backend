@@ -1,10 +1,9 @@
 import axios from 'axios';
 import { Request, Response } from 'express';
 
-// getting the api key from the .env file (devlopment) or Secrets (production)
-const apiKey = process.env.WEATHER_KEY;
+import config from '../utils/config';
 
-const baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric`;
+const baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${config.WEATHER_API_KEY}&units=metric`;
 
 export const getWeather = async (request: Request, response: Response, next: any) => {
     // for dynamic location

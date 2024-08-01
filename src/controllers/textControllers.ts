@@ -21,8 +21,3 @@ export const createText = async (request: Request, response: Response, next: any
         next(error);
     }
 };
-
-export const errorHandler = (error: Error, request: Request, response: Response, next: any) => {
-    console.error(error.message);
-    next(error);   
-}
