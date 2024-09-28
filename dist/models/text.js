@@ -24,13 +24,6 @@ var __importStar = (this && this.__importStar) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const mongoose_1 = __importStar(require("mongoose"));
-mongoose_1.default.set('strictQuery', false);
-const url = process.env.MONGODB_URI || 'undefined url';
-console.log('URI in env is', process.env.MONGODB_URI);
-console.log('connecting to', url);
-mongoose_1.default.connect(url)
-    .then(result => console.log('MongoDB connected'))
-    .catch(error => console.error('MongoDB connection error:', error));
 // Text schema to ensure correct format
 const textSchema = new mongoose_1.Schema({
     name: {

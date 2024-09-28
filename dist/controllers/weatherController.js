@@ -5,9 +5,8 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.getWeather = void 0;
 const axios_1 = __importDefault(require("axios"));
-// getting the api key from the .env file (devlopment) or Secrets (production)
-const apiKey = process.env.WEATHER_KEY;
-const baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${apiKey}&units=metric`;
+const config_1 = __importDefault(require("../utils/config"));
+const baseUrl = `https://api.openweathermap.org/data/2.5/weather?appid=${config_1.default.WEATHER_API_KEY}&units=metric`;
 const getWeather = async (request, response, next) => {
     // for dynamic location
     // const { lat, lon } = request.body as { lat: String, lon: String };
